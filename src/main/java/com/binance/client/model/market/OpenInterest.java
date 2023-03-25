@@ -11,7 +11,7 @@ public class OpenInterest {
 
     private String symbol;
 
-    private Long timestamp;
+    private Long time;
 
     public String getSymbol() {
         return symbol;
@@ -29,17 +29,17 @@ public class OpenInterest {
         this.symbol = symbol;
     }
 
-    public Long getTimestamp() {
-        return timestamp;
+    public Long getTime() {
+        return time;
     }
 
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE).append("openInterest", openInterest)
-                .append("symbol", symbol).append("timestamp", timestamp).toString();
+                .append("symbol", symbol).append("time", time).toString();
     }
 }

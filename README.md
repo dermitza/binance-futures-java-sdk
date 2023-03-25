@@ -1,25 +1,32 @@
 # Binance Java SDK
 
-This is Binance Java SDK, This is a lightweight Java library to handle Binance futures, you can import to your Java project and use this SDK to query all market data, trading and manage your account.
+A clone of the (soon to be deprecated) Binance Java SDK, with some API updates and stale dependabot pull requests.
+As this particular SDK is soon to be deprecated and replaced with [binance-futures-connector-java](https://github.com/binance/binance-futures-connector-java), it is uploaded for completion/archival purposes.
 
-The SDK supports both synchronous and asynchronous RESTful API invoking, and subscribe the market data from the Websocket connection.
 
+## Changes
 
-## Table of Contents
-
-- [Maven configuration](#Beginning)
+- Updated topLongShortAccountRatio()
+- Updated get24hrTickerPriceChange()
+- Updated OpenInterest.java
+- Stale dependabot pull requests
+    - Updated fastjson to 2.0.24
+    - Updated maven-javadoc-plugin to 3.5.0
+    - Updated logback-classic to 1.4.5
+    - Updated okhttp to 4.10.0
+    - Updated maven-gpg-plugin to 3.0.1
 
 ### Maven configuration
 
-Binance Java Sdk is available on [Maven Central](http://search.maven.org/#search). You just have to follow the following steps:
+Available on [Maven Central](http://search.maven.org/#search).
 
 Install 1/2: Add this to pom.xml:
 
 ```xml
 <dependency>
-  <groupId>com.github.yonathan95</groupId>
+  <groupId>com.github.dermitza</groupId>
   <artifactId>binance-java-sdk</artifactId>
-  <version>1.2.3</version>
+  <version>1.2.5</version>
 </dependency>
 ```
 
@@ -28,7 +35,7 @@ Install 2/2: Run via command line
 ```xml
 $ mvn install
 ```
-*The SDK is compiled by Java8*
+*The SDK is compiled with Java8*
 
 ## Creators
 [Yonathan Wolloch](https://github.com/yonathan95)

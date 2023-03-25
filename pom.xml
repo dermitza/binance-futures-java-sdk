@@ -2,14 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.yonathan95</groupId>
-    <artifactId>binance-java-sdk</artifactId>
-    <version>1.2.4</version>
+    <groupId>com.github.dermitza</groupId>
+    <artifactId>binance-futures-java-sdk</artifactId>
+    <version>1.2.5</version>
 
-    <name>Binance java sdk</name>
-    <description>This is Binance Java SDK, This is a lightweight Java library, you can import to your Java project and use this SDK to query all market data, trading and manage your account.
-        The SDK supports both synchronous and asynchronous RESTful API invoking, and subscribe the market data from the Websocket connection.  </description>
-    <url>https://github.com/yonathan95/Binance_Futures_Java</url>
+    <name>BinanceFuturesSDK</name>
+    <description>A clone of the (soon to be deprecated) Binance Java SDK, with some API updates and merged pull requests.</description>
+    <url>https://github.com/dermitza/binance-futures-java-sdk</url>
 
     <licenses>
         <license>
@@ -21,16 +20,16 @@
 
     <developers>
         <developer>
-            <name>Yonathan Wolloch</name>
-            <email>yonathan95@gmail.com</email>
+            <name>K. Dermitzakis</name>
+            <email>dermitza@gmail.com</email>
         </developer>
     </developers>
 
     <scm>
-        <developerConnection>scm:git:ssh://github.com/yonathan95/Binance_Futures_Java.git</developerConnection>
+        <developerConnection>scm:git:ssh://github.com/dermitza/binance-futures-java-sdk.git</developerConnection>
         <connection>${project.scm.developerConnection}</connection>
         <url>${project.url}</url>
-      <tag>binance-java-sdk-1.2.3</tag>
+      <tag>binance-java-sdk-1.2.5</tag>
     </scm>
 
     <distributionManagement>
@@ -44,8 +43,8 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <okhttp3.version>4.9.1</okhttp3.version>
-        <fastjson.version>1.2.76</fastjson.version>
+        <okhttp3.version>4.10.0</okhttp3.version>
+        <fastjson.version>2.0.24</fastjson.version>
     </properties>
 
     <dependencies>
@@ -62,7 +61,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>1.4.5</version>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
@@ -110,6 +109,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -133,7 +133,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.5.0</version>
+                <configuration>
+                    <doclint>none</doclint>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -146,7 +149,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>

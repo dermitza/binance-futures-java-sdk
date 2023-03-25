@@ -555,7 +555,7 @@ class RestApiRequestImpl {
                 element.setPriceChange(item.getBigDecimal("priceChange"));
                 element.setPriceChangePercent(item.getBigDecimal("priceChangePercent"));
                 element.setWeightedAvgPrice(item.getBigDecimal("weightedAvgPrice"));
-                element.setPrevClosePrice(item.getBigDecimal("prevClosePrice"));
+                //element.setPrevClosePrice(item.getBigDecimal("prevClosePrice"));
                 element.setLastPrice(item.getBigDecimal("lastPrice"));
                 element.setLastQty(item.getBigDecimal("lastQty"));
                 element.setOpenPrice(item.getBigDecimal("openPrice"));
@@ -1455,16 +1455,22 @@ class RestApiRequestImpl {
                 .putToUrl("symbol", symbol);
 
 
-        request.request = createRequestByGetWithSignature("/futures/data/openInterest", builder);
+        request.request = createRequestByGetWithSignature("/fapi/v1/openInterest", builder);
 
         request.jsonParser = (jsonWrapper -> {
             OpenInterest result = new OpenInterest();
-            JsonWrapperArray dataArray = jsonWrapper.getJsonArray("data");
-            dataArray.forEach((item) -> {
-                result.setSymbol(item.getString("symbol"));
-                result.setOpenInterest(item.getBigDecimal("openInterest"));
-                result.setTimestamp(item.getLong("timestamp"));
-            });
+            JSONObject o = jsonWrapper.getJson();
+            result.setSymbol(o.getString("symbol"));
+            result.setOpenInterest(o.getBigDecimal("openInterest"));
+            result.setTime(o.getLong("time"));
+            
+            //JsonWrapperArray dataArray = jsonWrapper.getJsonArray("data");
+            //dataArray.forEach((item) -> {
+                //System.out.println(item);
+                //result.setSymbol(item.getString("symbol"));
+                //result.setOpenInterest(item.getBigDecimal("openInterest"));
+                //result.setTimestamp(item.getLong("time"));
+            //});
             return result;
         });
         return request;

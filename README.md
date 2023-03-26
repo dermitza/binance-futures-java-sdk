@@ -24,7 +24,7 @@ Install 1/2: Add this to pom.xml:
 
 ```xml
 <dependency>
-  <groupId>com.github.dermitza</groupId>
+  <groupId>io.github.dermitza</groupId>
   <artifactId>binance-java-sdk</artifactId>
   <version>1.2.5</version>
 </dependency>
